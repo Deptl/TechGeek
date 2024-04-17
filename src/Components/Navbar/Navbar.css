@@ -1,0 +1,29 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #00688b;
+}
+
+.navbar-logo img{
+    width: 200px;
+}
+
+/* .navbar-logo img:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+} */
+
+.navbar-icons {
+    display: flex; 
+}
+
+.navbar-icons img {
+    margin-right: 30px;
+}
+
+.navbar-icons img:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
