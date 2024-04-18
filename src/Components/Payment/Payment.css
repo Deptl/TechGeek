@@ -1,5 +1,4 @@
 .payment-container{
-    width: 50%;
     background-color: azure;
     height: 450px;
     border: 1px solid #0088eb;
@@ -20,10 +19,10 @@
 }
 
 .row{
-    width: 50%;
+    width: 80%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .row input{
@@ -42,7 +41,7 @@
 }
 
 .payment-fields button{
-    width: 53.5%;
+    width: 85%;
     height: 30px;
     color: white;
     background: #00688b;
