@@ -11,7 +11,7 @@ export const Product = (props) => {
         </div></Link>
         <div className="desc">
             <h1>{props.name}</h1>
-            <span>{props.price}</span>
+            <span>${props.price}</span>
         </div>
     </div>
   )

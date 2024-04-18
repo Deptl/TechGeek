@@ -1,0 +1,18 @@
+.review-card{
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+}
+
+.reviews-container h2{
+    margin-left: 50px;
+}
+
+.review-content{
+    background-color: azure;
+    border-radius: 5px;
+    margin: 10px;
+    width: 350px;
+    padding: 15px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}

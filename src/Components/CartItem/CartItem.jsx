@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { ShopContext } from '../../Context/TechContext'
 import Remove from '../../Assets/delete.png'
 import './CartItem.css'
+import { Link } from 'react-router-dom'
 
 export const CartItem = () => {
     const { Items, cartItems, deleteFromCart, getTotalAmount } = useContext(ShopContext);
@@ -52,7 +53,7 @@ export const CartItem = () => {
                             <h3>${getTotalAmount()}</h3>
                         </div>
                     </div>
-                    <button>Proceed to Payment</button>
+                    <Link to="/payment"><button>Proceed to Payment</button></Link>
                 </div>
             </div>
         </div>

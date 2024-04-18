@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import Banner from '../../Assets/homebanner.avif'
+import Banner from '../../Assets/banner.jpeg'
 import './HomeContent.css'
 import { Product } from '../Product/Product'
 import { Footer } from '../Footer/Footer'
@@ -16,7 +16,7 @@ export const HomeContent = () => {
             <hr />
             <div className="products">
                 {Items.map((item, i)=>{
-                    return <Product key={i} id={item.id} name={item.itemName} image={item.image} price={item.price}/>
+                    return <Product key={i} id={item.id} name={item.name} image={item.image} price={item.price}/>
                 })}
             </div>
         </div>
