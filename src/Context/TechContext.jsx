@@ -2,6 +2,7 @@ import React, { createContext, useEffect, useState } from "react";
 
 export const ShopContext = createContext(null);
 
+//Setting default cart 
 const getDefaultCart = () => {
     let cart = {};
     for (let i = 0; i < 300 + 1; i++) {
@@ -12,15 +13,19 @@ const getDefaultCart = () => {
 
 const ShopContextProvider = (props) => {
 
+    // Setting items in use state
     const [Items, setItems] = useState([]);
+    // Setting cartitems in use state
     const [cartItems, setCartItems] = useState(getDefaultCart());
 
+    //Function for fetching Products from database using API
     const getProducts = async () => {
         const res = await fetch("http://localhost:4000/allproducts")
         const data = await res.json();
         console.log("Fetched items:", data);
         setItems(data);
-
+        
+        //Checking the user is logged in or not and getting the the cart data which is saved for specific user
         if(localStorage.getItem('auth-token')){
             fetch('http://localhost:4000/getCart', {
                 method: 'POST',
@@ -39,9 +44,12 @@ const ShopContextProvider = (props) => {
         getProducts()
     }, [])
 
+    //Function for adding to cart functionality
     const addToCart = (id) => {
         setCartItems((prev) => ({ ...prev, [id]: prev[id] + 1 }));
         console.log(cartItems);
+
+        //Checking if user is logged in and then adding products to cart of specific user
         if(localStorage.getItem('auth-token')){
             fetch('http://localhost:4000/addtocart', {
                 method: 'POST',
@@ -57,8 +65,11 @@ const ShopContextProvider = (props) => {
         }
     }
 
+    //Function for deleting from cart functionality
     const deleteFromCart = (id) => {
         setCartItems((prev) => ({ ...prev, [id]: prev[id] - 1 }));
+
+        //Checking if user is logged in and then deleting products from cart of specific user
         if(localStorage.getItem('auth-token')){
             fetch('http://localhost:4000/deletefromcart', {
                 method: 'POST',
@@ -74,6 +85,7 @@ const ShopContextProvider = (props) => {
         }
     }
 
+    //Function for getting total amount of whole cart and setting it in cart page
     const getTotalAmount = () => {
         let totalAmount = 0;
         for (const item in cartItems) {
@@ -85,6 +97,7 @@ const ShopContextProvider = (props) => {
         return totalAmount;
     }
 
+    //Function for getting cart count which is used in navbar
     const getCartCount = () => {
         let count = 0;
         for (const item in cartItems) {
@@ -95,6 +108,7 @@ const ShopContextProvider = (props) => {
         return count;
     }
 
+    //Function for clearing cart
     const clearCart = () => {
         setCartItems({})
     }
