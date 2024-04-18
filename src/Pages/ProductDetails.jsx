@@ -1,19 +1,20 @@
 import React, { useContext } from 'react'
 import { ShopContext } from '../Context/TechContext'
 import { useParams } from 'react-router-dom';
-import { SingleProduct } from '../Components/SingleProduct/SingleProduct';
+import './CSS/ProductDetails.css'
 
 export const ProductDetails = () => {
     const {Items} = useContext(ShopContext);
     const {productId} = useParams();
     const product = Items.find((e)=> e.id === Number(productId));
+    const {addToCart} = useContext(ShopContext);
 
   return (
     <div>
         <div className='singleproduct'>
             <div className="content-left">
                 <div className="image-display">
-                    <img className="image-display-main" src={product.image} alt="" />
+                    <img src={product.image} alt="" />
                 </div>
             </div>
             <div className="content-right">
@@ -24,8 +25,8 @@ export const ProductDetails = () => {
                 <div className="product-price">
                     <p>Price: ${product.price}</p>
                 </div>
+                <button onClick={() => {addToCart(product.id)}}>Add to Cart</button>
             </div>
-
         </div>
     </div>
   )
