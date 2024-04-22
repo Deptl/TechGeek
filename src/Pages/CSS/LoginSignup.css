@@ -50,6 +50,10 @@
     margin-top: 20px;
 }
 
+.loginsignup-container button:hover{
+    transform:scale(1.1);
+}
+
 .loginsignup-login{
     margin-top: 20px;
     color: 5c5c5c;

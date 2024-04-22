@@ -34,6 +34,10 @@
     margin-top: 20px;
 }
 
+.content-right button:hover{
+    transform:scale(1.1);
+}
+
 .style hr{
     height: 3px;
     background: #0088eb;
